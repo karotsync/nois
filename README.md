@@ -20,26 +20,32 @@ echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
 source $HOME/.bash_profile
 [ ! -d ~/go/bin ] && mkdir -p ~/go/bin
 ```
-# set vars
+**set vars**
+```
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
 echo "export MONIKER="test"" >> $HOME/.bash_profile
 echo "export NOIS_CHAIN_ID="nois-1"" >> $HOME/.bash_profile
 echo "export NOIS_PORT="36"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
+```
 
-# download binary
+**download binary**
+```
 cd $HOME
 rm -rf $HOME/noisd
 git clone https://github.com/noislabs/noisd
 cd noisd
 git checkout v1.0.5
 make install
+```
 
-# config and init app
+**config and init app**
+```
 noisd config node tcp://localhost:${NOIS_PORT}657
 noisd config keyring-backend os
 noisd config chain-id nois-1
 noisd init "test" --chain-id nois-1
+```
 
 # download genesis and addrbook
 wget -O $HOME/.noisd/config/genesis.json https://server-3.itrocket.net/mainnet/nois/genesis.json
