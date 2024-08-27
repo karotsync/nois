@@ -96,7 +96,8 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.noisd/config/config.t
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.noisd/config/config.toml
 ```
 
-# create service file
+**create service file**
+```
 sudo tee /etc/systemd/system/noisd.service > /dev/null <<EOF
 [Unit]
 Description=Nois node
@@ -111,8 +112,10 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
+```
 
-# reset and download snapshot
+**reset and download snapshot**
+```
 noisd tendermint unsafe-reset-all --home $HOME/.noisd
 if curl -s --head curl https://server-3.itrocket.net/mainnet/nois/nois_2024-08-19_18581960_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
   curl https://server-3.itrocket.net/mainnet/nois/nois_2024-08-19_18581960_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.noisd
