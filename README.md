@@ -122,8 +122,10 @@ if curl -s --head curl https://server-3.itrocket.net/mainnet/nois/nois_2024-08-1
     else
   echo "no snapshot founded"
 fi
+```
 
-# enable and start service
+**enable and start service**
+```
 sudo systemctl daemon-reload
 sudo systemctl enable noisd
 sudo systemctl restart noisd && sudo journalctl -u noisd -f
@@ -131,6 +133,7 @@ Automatic Installation
 pruning: custom: 100/0/10 | indexer: null
 
 source <(curl -s https://itrocket.net/api/mainnet/nois/autoinstall/)
+```
 Create wallet
 # to create a new wallet, use the following command. don’t forget to save the mnemonic
 noisd keys add $WALLET
