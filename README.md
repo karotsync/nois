@@ -7,6 +7,7 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip -y
 ```
+
 **install go, if needed**
 ```
 cd $HOME
@@ -20,6 +21,7 @@ echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
 source $HOME/.bash_profile
 [ ! -d ~/go/bin ] && mkdir -p ~/go/bin
 ```
+
 **set vars**
 ```
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
@@ -139,10 +141,12 @@ source <(curl -s https://itrocket.net/api/mainnet/nois/autoinstall/)
 noisd keys add $WALLET
 ```
 
-# to restore exexuting wallet, use the following command
+**to restore exexuting wallet, use the following command**
+```
 noisd keys add $WALLET --recover
+```
 
-# save wallet and validator address
+**save wallet and validator address**
 WALLET_ADDRESS=$(noisd keys show $WALLET -a)
 VALOPER_ADDRESS=$(noisd keys show $WALLET --bech val -a)
 echo "export WALLET_ADDRESS="$WALLET_ADDRESS >> $HOME/.bash_profile
