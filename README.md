@@ -164,19 +164,7 @@ noisd query bank balances $WALLET_ADDRESS
 ```
 
 **Create validator**
-Moniker
-Identity
-Details
-I love blockchain ❤️
-Amount, unois
-1000000
-Commission rate
-0.1
-Commission max rate
-0.2
-Commission max change rate
-0.01
-Website
+```
 noisd tx staking create-validator \
 --amount 1000000unois \
 --from $WALLET \
@@ -192,6 +180,8 @@ noisd tx staking create-validator \
 --chain-id nois-1 \
 --gas auto --gas-adjustment 1.5 \
 -y
+```
+
 Monitoring
 If you want to have set up a monitoring and alert system use our cosmos nodes monitoring guide with tenderduty
 
