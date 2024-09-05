@@ -204,9 +204,11 @@ sudo ufw enable
 ```
 
 **Delete node**
+```
 sudo systemctl stop noisd
 sudo systemctl disable noisd
 sudo rm -rf /etc/systemd/system/noisd.service
 sudo rm $(which noisd)
 sudo rm -rf $HOME/.noisd
 sed -i "/NOIS_/d" $HOME/.bash_profile
+```
